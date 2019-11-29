@@ -36,11 +36,10 @@ export class ListComponent implements OnInit {
     }
 
 
-    showDots(evt: number): void {
-        this.dotsActive = !this.dotsActive;
-        this.listService.myList[evt].option=true; 
-        this.listService.folderBtn = true;
-        console.log('clicked')
+    showDots(evt: any): void {
+
+        evt.option == true ? evt.option = false : this.listService.cleanClick(evt);
+
     }
 
     addFolder() {

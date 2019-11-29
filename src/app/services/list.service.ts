@@ -18,4 +18,10 @@ export class ListService {
         this.myList.push(newFolder);
     }
 
+    cleanClick(evt: any) {
+        for (let i = 0; i < this.myList.length; i++) {
+            this.myList[i].option=false;
+        }
+        evt.option = !evt.option;
+    }
 }
