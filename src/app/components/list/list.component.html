@@ -1,0 +1,15 @@
+<StackLayout >
+    <ListView [items]="myList"
+                (itemTap)="showDots(index)">
+        <ng-template let-folder="item" let-index="index">
+            <GridLayout columns="*,*,*,auto" rows="*,*"> 
+                <Label [text]="folder.title" row="0" column="0" colSpan="3" class="title"></Label>
+                <Label [text]="folder.date" row="1" column="0" colSpan="2"></Label>
+                <Label [text]="index" row="1" column="2"></Label>
+                <FlexboxLayout rowSpan="2" column="3" *ngIf="folder.option">
+                    <Label text="a"></Label>
+                </FlexboxLayout>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>

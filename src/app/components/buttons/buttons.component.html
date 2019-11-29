@@ -1,0 +1,18 @@
+<GridLayout row="1" borderTopWidth="2px" borderTopColor="black" columns="*,*,*" rows="*" width="100%" height="160px" row="1" backgroundColor="#f2f4f6">
+
+    <StackLayout row="0" column="0" width="100%">
+            <Image src="res://icon" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="MINHAS PASTAS" textTransform="uppercase" width="30%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+    </StackLayout>
+
+    <StackLayout row="0" column="1" width="100%">
+            <Image src="res://icon" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="compartilhar essa pasta" textTransform="uppercase" width="70%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+    </StackLayout>
+
+    <StackLayout row="0" column="2" width="100%" (tap)="addFolder()"> 
+            <Image src="res://icon" width="50px" textAlignment="center" style="margin-top: 20px"></Image>
+            <Label text="adicionar pasta" textTransform="uppercase" width="40%" textAlignment="center" textWrap="true" style="font-size: 10px; font-weight: bold; color: #264cc7"></Label>
+    </StackLayout>
+    
+</GridLayout>
