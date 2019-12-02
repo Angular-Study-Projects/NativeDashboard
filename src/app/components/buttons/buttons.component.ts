@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ListService } from "~/app/services/list.service";
+import { Router, RouterState } from "@angular/router";
 
 @Component({
     selector: 'buttons-component',
@@ -10,7 +11,7 @@ import { ListService } from "~/app/services/list.service";
 
 export class ButtonsComponent implements OnInit {
     
-    constructor(private listService: ListService ){}
+    constructor(private listService: ListService, private router: Router ){}
 
 
     ngOnInit() {
@@ -25,6 +26,10 @@ export class ButtonsComponent implements OnInit {
                             option: false,
                             id: ++this.listService.id
                         })
+    }
+
+    newPage() {
+        this.router.navigate(['/browse'])
     }
 
 }
