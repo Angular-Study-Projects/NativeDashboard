@@ -22,7 +22,8 @@ export class ButtonsComponent implements OnInit {
                             title: "Folder name",
                             date: "Nov 12, 2018, 11:18:55 AM", 
                             lastModification: 2,
-                            option: false
+                            option: false,
+                            id: ++this.listService.id
                         })
     }
 

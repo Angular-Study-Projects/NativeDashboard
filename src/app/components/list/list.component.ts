@@ -5,6 +5,8 @@ interface documentTemplate {
     title: string;
     date: string;
     lastModification: number;
+    option: boolean;
+    id: number;
 }
 
 @Component({
@@ -17,7 +19,7 @@ export class ListComponent implements OnInit {
 
     dotsActive: boolean;
 
-    myList: documentTemplate[] = []
+    myList: documentTemplate[] = [];
 
     constructor(private listService: ListService){
     }
@@ -25,14 +27,6 @@ export class ListComponent implements OnInit {
     ngOnInit(): void {
         this.dotsActive = false;
         this.myList = this.listService.myList;
-        // for(let i = 0; i < 25; i++){
-
-        //     this.myList.push({
-        //                         title: "Folder name",
-        //                         date: "Nov 12, 2018, 11:18:55 AM", 
-        //                         lastModification: 2
-        //                     })
-        // }
     }
 
 
@@ -42,13 +36,23 @@ export class ListComponent implements OnInit {
 
     }
 
+    longPress(id: number) {
+        console.log('working '+ id)
+    }
+    
+
     addFolder() {
         this.listService.addFolder({
                             title: "Folder name",
                             date: "Nov 12, 2018, 11:18:55 AM", 
                             lastModification: 2,
-                            option: false
+                            option: false,
+                            id: ++this.listService.id
                         })
+    }
+
+    deleteFolder (listItem: number) {
+        this.listService.deleteFolder(listItem);
     }
 
 
