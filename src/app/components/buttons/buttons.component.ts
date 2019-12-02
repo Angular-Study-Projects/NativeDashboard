@@ -20,8 +20,8 @@ export class ButtonsComponent implements OnInit {
     addFolder() {
         this.listService.addFolder({
                             title: "Folder name",
-                            date: "Nov 12, 2018, 11:18:55 AM", 
-                            lastModification: 2,
+                            date: Date.now(), 
+                            lastModification: Date.now(),
                             option: false,
                             id: ++this.listService.id
                         })

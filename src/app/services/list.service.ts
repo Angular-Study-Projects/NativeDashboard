@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
+import { DatePipe } from "@angular/common";
 
 interface documentTemplate {
     title: string;
-    date: string;
+    date: number;
     lastModification: number;
     option: boolean;
     id: number;
@@ -14,7 +15,7 @@ export class ListService {
     folderBtn:boolean = false;
     id: number = 0;
 
-    myList: documentTemplate[] = [{title: 'folder title', date: '12 Fev 2019 AM', lastModification: 4, option:false, id: this.id}]
+    myList: documentTemplate[] = [{title: 'folder title', date: Date.now(), lastModification: Date.now(), option:false, id: this.id}]
 
     addFolder(newFolder: documentTemplate) {
         this.myList.push(newFolder);
