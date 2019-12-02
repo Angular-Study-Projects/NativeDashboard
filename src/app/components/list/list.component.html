@@ -1,5 +1,11 @@
-<StackLayout >
-    <ListView [items]="myList" style="height: 100%;">
+<StackLayout>
+    <StackLayout *ngIf="listService._isEmpty">
+            <Image src="res://icon" ></Image>
+            <Label class="warning" text="Empty List"></Label>
+    </StackLayout>
+    
+
+    <ListView [items]="myList" style="height: 100%;" *ngIf="!listService._isEmpty">
         <ng-template let-folder="item" let-index="index">
             <GridLayout columns="*,*,*,*" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
                 <Label [text]="folder.title" row="0" column="0" colSpan="3" class="title"></Label>

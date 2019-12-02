@@ -16,9 +16,11 @@
 </ActionBar>
 
 <stackLayout >
-    
+
         <TextField hint="Folder Title" [(ngModel)]="folderTitle"></TextField>
 
         <Button class="newFolder" text="create new folder" (tap)="addFolder()"></Button>
-    
+
+        <Label class="invalidInput" text="Invalid Input" *ngIf="invalid"></Label>
+
 </stackLayout>

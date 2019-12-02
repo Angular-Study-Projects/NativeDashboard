@@ -13,18 +13,27 @@ import { Router } from "@angular/router";
 export class BrowseComponent implements OnInit {
 
     folderTitle: string;
+    invalid: boolean;
 
     constructor(private listService: ListService, private router: Router) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
-        this.folderTitle=''
+        this.folderTitle='';
+        this.invalid = false;
     }
 
     addFolder() {
-        this.listService.addFolder({title: this.folderTitle, date: Date.now(), lastModification: Date.now(), option: false, id: ++this.listService.id})
-        this.router.navigate(['/'])
+        if( this.folderTitle != '' ) {
+            this.listService.addFolder({title: this.folderTitle, date: Date.now(), lastModification: Date.now(), option: false, id: ++this.listService.id})
+            this.listService.isEmpty()
+            this.router.navigate(['/'])
+        }
+        else {
+            this.invalid = true;
+        }
+        
     }
 
     onDrawerButtonTap(): void {

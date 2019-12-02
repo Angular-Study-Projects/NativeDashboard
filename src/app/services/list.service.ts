@@ -13,9 +13,12 @@ interface documentTemplate {
 export class ListService {
 
     folderBtn:boolean = false;
+    _isEmpty: boolean = true;
     id: number = 0;
 
-    myList: documentTemplate[] = [{title: 'folder title', date: Date.now(), lastModification: Date.now(), option:false, id: this.id}]
+    myList: documentTemplate[] = []
+
+    // {title: 'folder title', date: Date.now(), lastModification: Date.now(), option:false, id: this.id}
 
     addFolder(newFolder: documentTemplate) {
         this.myList.push(newFolder);
@@ -23,6 +26,10 @@ export class ListService {
 
     deleteFolder( item: number ) {
         this.myList.splice(item, 1);
+    }
+
+    isEmpty() {
+        this.myList.length == 0 ? this._isEmpty = true : this._isEmpty = false;
     }
 
     cleanClick(evt: any) {

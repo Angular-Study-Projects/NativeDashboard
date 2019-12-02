@@ -49,10 +49,12 @@ export class ListComponent implements OnInit {
                             option: false,
                             id: ++this.listService.id
                         })
+        this.listService.isEmpty();
     }
 
     deleteFolder (listItem: number) {
         this.listService.deleteFolder(listItem);
+        this.listService.isEmpty();
     }
 
 

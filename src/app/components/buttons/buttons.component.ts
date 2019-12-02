@@ -19,16 +19,6 @@ export class ButtonsComponent implements OnInit {
     }
 
     addFolder() {
-        this.listService.addFolder({
-                            title: "Folder name",
-                            date: Date.now(), 
-                            lastModification: Date.now(),
-                            option: false,
-                            id: ++this.listService.id
-                        })
-    }
-
-    newPage() {
         this.router.navigate(['/browse'])
     }
 
