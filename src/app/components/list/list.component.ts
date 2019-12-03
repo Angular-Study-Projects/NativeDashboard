@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ListService } from "~/app/services/list.service";
 
 interface documentTemplate {

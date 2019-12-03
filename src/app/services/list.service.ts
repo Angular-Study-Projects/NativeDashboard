@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { DatePipe } from "@angular/common";
 
 interface documentTemplate {
     title: string;
@@ -17,8 +16,18 @@ export class ListService {
     id: number = 0;
 
     myList: documentTemplate[] = []
+    
+    folder = this.myList;
+    filter = ""
 
     // {title: 'folder title', date: Date.now(), lastModification: Date.now(), option:false, id: this.id}
+
+    searchFolder(title: string) {
+        this.myList.filter((obj: documentTemplate) => {
+            return obj.title === title;
+        })
+    }
+
 
     addFolder(newFolder: documentTemplate) {
         this.myList.push(newFolder);
