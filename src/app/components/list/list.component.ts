@@ -3,7 +3,6 @@ import { ListService } from "~/app/services/list.service";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { DeleteComponent } from "../modals/delete.component";
 
-
 interface documentTemplate {
     title: string;
     date: number;

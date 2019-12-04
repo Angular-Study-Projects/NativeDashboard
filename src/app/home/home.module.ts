@@ -14,7 +14,7 @@ import { ButtonsComponent } from "../components/buttons/buttons.component";
     declarations: [
         HomeComponent,
         ListComponent,
-        ButtonsComponent
+        ButtonsComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
