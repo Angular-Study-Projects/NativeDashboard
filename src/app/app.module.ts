@@ -7,6 +7,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ListService } from "./services/list.service";
 
+import { DeleteComponent } from "./components/modals/delete.component";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -18,7 +20,8 @@ import { ListService } from "./services/list.service";
         NativeScriptUISideDrawerModule,
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        DeleteComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -1,5 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
 import { ListService } from "~/app/services/list.service";
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { DeleteComponent } from "../modals/delete.component";
+
 
 interface documentTemplate {
     title: string;
@@ -12,7 +15,8 @@ interface documentTemplate {
 @Component({
     selector: "list-component",
     templateUrl: "./list.component.html",
-    styleUrls: ["./list.component.css"]
+    styleUrls: ["./list.component.css"],
+    providers: [ModalDialogService]
 }) 
 
 export class ListComponent implements OnInit {
@@ -21,7 +25,16 @@ export class ListComponent implements OnInit {
 
     myList: documentTemplate[] = [];
 
-    constructor(private listService: ListService){
+    constructor(private listService: ListService, private modalService: ModalDialogService, private viewContainerRef: ViewContainerRef){
+    }
+
+    showModal() {
+        const options: ModalDialogOptions = {
+            viewContainerRef: this.viewContainerRef,
+            fullscreen: true,
+            context: {}
+        };
+        this.modalService.showModal(DeleteComponent, options);
     }
     
     ngOnInit(): void {

@@ -36,6 +36,10 @@ export class BrowseComponent implements OnInit {
         
     }
 
+    goBack() {
+        this.router.navigate(['/'])
+    }
+
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();

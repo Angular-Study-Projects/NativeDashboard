@@ -17,10 +17,12 @@
 
 <stackLayout >
 
-        <TextField hint="Folder Title" [(ngModel)]="folderTitle"></TextField>
+    <TextField hint="Folder Title" [(ngModel)]="folderTitle"></TextField>
 
-        <Button class="newFolder" text="create new folder" (tap)="addFolder()"></Button>
+    <Button class="newFolder" text="create new folder" (tap)="addFolder()"></Button>
 
-        <Label class="invalidInput" text="Invalid Input" *ngIf="invalid"></Label>
+    <Button style="color: blue" text="back" (tap)="goBack()"></Button>
+
+    <Label class="invalidInput" text="Invalid Input" *ngIf="invalid"></Label>
 
 </stackLayout>
