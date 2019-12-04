@@ -12,8 +12,8 @@
                     <Label [text]="folder.title" row="0" column="0" colSpan="3" class="title"></Label>
                     <Label [text]="folder.lastModification | date:'medium'" row="1" column="0" colSpan="2"></Label>
                     <Label [text]="folder.id" row="1" column="2"></Label>
-                    <FlexboxLayout row="0" rowSpan="2" column="3" *ngIf="folder.option"> 
-                        <Label class="page__content-icon fas" text="&#xf005;"></Label>
+                    <FlexboxLayout row="0" rowSpan="2" column="3" *ngIf="folder.option" (tap)="addFolder()"> 
+                        <Image src="res://ellipsis" width="50%" alt="ellipsis"></Image>
                     </FlexboxLayout>
                 </GridLayout>
             </ng-template>
