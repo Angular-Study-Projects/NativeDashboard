@@ -41,15 +41,8 @@ export class ListComponent implements OnInit {
     }
     
 
-    addFolder() {
-        this.listService.addFolder({
-                            title: "Folder name",
-                            date: Date.now(), 
-                            lastModification: Date.now(),
-                            option: false,
-                            id: ++this.listService.id
-                        })
-        this.listService.isEmpty();
+    showOption(item: number) {
+        
     }
 
     deleteFolder (listItem: number) {
