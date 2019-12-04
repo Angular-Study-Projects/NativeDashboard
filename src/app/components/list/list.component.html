@@ -10,7 +10,7 @@
             <ng-template let-folder="item" let-index="index">
                 <GridLayout columns="auto,*,*,*,auto" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
                     <Image src="res://icon" width="50" textAlignment="center" row="0" rowSpan="2"></Image>
-                    <Label [text]="folder.title" row="0" column="1" colSpan="3" class="title"></Label>
+                    <Label [text]="folder.title" row="0" column="1" colSpan="2" class="title"></Label>
                     <Label [text]="folder.lastModification | date:'medium'" row="1" column="1" colSpan="2"></Label>
                     <Label [text]="folder.id" row="1" column="2"></Label>
                     <FlexboxLayout row="0" rowSpan="2" column="3" *ngIf="folder.option" (tap)="dotsActive = !dotsActive"> 
@@ -21,14 +21,14 @@
         </ListView>
 
         <StackLayout row="2" style="background-color: #f5f5f5; height: 200;" *ngIf="dotsActive">
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
-            <Label text="hey" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
+            <Label text="Compartilhar" style="text-align: center;"></Label>
         </StackLayout>
 
     </GridLayout>
