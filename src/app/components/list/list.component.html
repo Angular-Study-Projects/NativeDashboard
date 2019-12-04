@@ -8,9 +8,10 @@
         <!-- <SearchBar row="0" hint="Search hint" [text]="searchPhrase" (submit)="onSearchSubmit($event)"></SearchBar> -->
         <ListView row="1" [items]="myList" style="height: 100%;">
             <ng-template let-folder="item" let-index="index">
-                <GridLayout columns="*,*,*,*" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
-                    <Label [text]="folder.title" row="0" column="0" colSpan="3" class="title"></Label>
-                    <Label [text]="folder.lastModification | date:'medium'" row="1" column="0" colSpan="2"></Label>
+                <GridLayout columns="auto,*,*,*,auto" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
+                    <Image src="res://icon" width="50" textAlignment="center" row="0" rowSpan="2"></Image>
+                    <Label [text]="folder.title" row="0" column="1" colSpan="3" class="title"></Label>
+                    <Label [text]="folder.lastModification | date:'medium'" row="1" column="1" colSpan="2"></Label>
                     <Label [text]="folder.id" row="1" column="2"></Label>
                     <FlexboxLayout row="0" rowSpan="2" column="3" *ngIf="folder.option" (tap)="dotsActive = !dotsActive"> 
                         <Image src="res://ellipsis" width="50%" alt="ellipsis"></Image>
