@@ -5,9 +5,7 @@
     </StackLayout>
 
     <GridLayout rows="auto, *" *ngIf="!listService._isEmpty">
-        
         <!-- <SearchBar row="0" hint="Search hint" [text]="searchPhrase" (submit)="onSearchSubmit($event)"></SearchBar> -->
-
         <ListView row="1" [items]="myList" style="height: 100%;" >
             <ng-template let-folder="item" let-index="index">
                 <GridLayout columns="*,*,*,*" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
@@ -15,12 +13,10 @@
                     <Label [text]="folder.lastModification | date:'medium'" row="1" column="0" colSpan="2"></Label>
                     <Label [text]="folder.id" row="1" column="2"></Label>
                     <FlexboxLayout row="0" rowSpan="2" column="3" *ngIf="folder.option"> 
-                            <Button text="add folder" ></Button>
+                        <Label class="page__content-icon fas" text="&#xf005;"></Label>
                     </FlexboxLayout>
                 </GridLayout>
             </ng-template>
         </ListView>
     </GridLayout>
-
-    
 </StackLayout>

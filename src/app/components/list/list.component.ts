@@ -12,7 +12,7 @@ interface documentTemplate {
 @Component({
     selector: "list-component",
     templateUrl: "./list.component.html",
-    styleUrls: ["./list.component.css"]
+    styleUrls: ["./list.component.sass"]
 }) 
 
 export class ListComponent implements OnInit {
