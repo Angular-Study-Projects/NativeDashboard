@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, ViewContainerRef, OnChanges } from "@angular/core";
 import { ListService } from "~/app/services/list.service";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { DeleteComponent } from "../modals/delete.component";
+import { SearchBar } from "tns-core-modules/ui/search-bar";
+
 
 interface documentTemplate {
     title: string;
@@ -21,7 +23,7 @@ interface documentTemplate {
 export class ListComponent implements OnInit {
 
     dotsActive: boolean;
-
+    searchPhrase: string;
     myList: documentTemplate[] = [];
 
     constructor(private listService: ListService, private modalService: ModalDialogService, private viewContainerRef: ViewContainerRef){
@@ -50,6 +52,36 @@ export class ListComponent implements OnInit {
 
     longPress(id: number) {
         console.log('working '+ id)
+    }
+
+
+
+    onSubmit(args) {
+        const searchBar = args.object as SearchBar;
+        console.log(`Searching for ${searchBar.text}`);
+    }
+
+    onTextChanged(args) {
+        const searchBar = args.object as SearchBar;
+        
+
+        setTimeout(()=> {
+            const text = searchBar.text;
+
+            if( text != "" ) {
+                this.myList = [... this.listService.myList.filter( it => it.title.toLowerCase().startsWith(text)) ]
+            }
+            else{
+                this.myList = [... this.listService.myList]
+            }
+        }, 100)
+
+        console.log(`Input changed! New value: ${searchBar.text}`);
+    }
+
+    onClear(args) {
+        const searchBar = args.object as SearchBar;
+        console.log(`Clear event raised`);
     }
     
 

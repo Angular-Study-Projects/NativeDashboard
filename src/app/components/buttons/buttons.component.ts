@@ -20,6 +20,7 @@ export class ButtonsComponent implements OnInit {
 
     addFolder() {
         this.router.navigate(['/browse'])
+        console.log("passou")
     }
 
 }
