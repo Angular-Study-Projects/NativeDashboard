@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
     dotsActive: boolean;
     searchPhrase: string;
     myList: documentTemplate[] = [];
+    noResult: boolean;
 
     constructor(private listService: ListService, private modalService: ModalDialogService, private viewContainerRef: ViewContainerRef){
     }
@@ -66,17 +67,28 @@ export class ListComponent implements OnInit {
         
 
         setTimeout(()=> {
-            const text = searchBar.text;
+            let text = searchBar.text;
 
             if( text != "" ) {
-                this.myList = [... this.listService.myList.filter( it => it.title.toLowerCase().startsWith(text)) ]
+                this.myList = [... this.listService.myList.filter( it => {
+                    
+                    if(it.title.toLowerCase().startsWith(text.toLowerCase())) {
+                        this.noResult = false;
+                        console.log(text.toLowerCase())
+
+                        return it.title.toLowerCase().startsWith(text.toLowerCase())
+                    }
+                
+                })]
             }
             else{
                 this.myList = [... this.listService.myList]
             }
         }, 100)
 
-        console.log(`Input changed! New value: ${searchBar.text}`);
+        // console.log(this.noResult)
+
+        // console.log(`Input changed! New value: ${searchBar.text}`);
     }
 
     onClear(args) {
@@ -91,6 +103,7 @@ export class ListComponent implements OnInit {
 
     deleteFolder (listItem: number) {
         this.listService.deleteFolder(listItem);
+        this.myList = [... this.listService.myList]
         this.listService.isEmpty();
     }
 

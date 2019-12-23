@@ -35,6 +35,7 @@ export class ListService {
 
     deleteFolder( item: number ) {
         this.myList.splice(item, 1);
+        
     }
 
     isEmpty() {

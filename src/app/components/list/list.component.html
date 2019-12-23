@@ -1,18 +1,19 @@
 <StackLayout>
-    <StackLayout *ngIf="listService._isEmpty">
-            <Image src="res://icon" ></Image>
-            <Label class="warning" text="Empty List"></Label>
-    </StackLayout>
+    
+    <SearchBar 
+        hint="Buscar arquivos ou pastas"
+        [text]="searchPhrase" (textChange)="onTextChanged($event)" 
+        (clear)="onClear($event)" (submit)="onSubmit($event)">
+    </SearchBar>
 
-    <GridLayout rows="auto, *, auto" *ngIf="!listService._isEmpty" >
+    <GridLayout rows="auto, *, auto">
         
-        <SearchBar row="0" 
-            hint="Buscar arquivos ou pastas"
-            [text]="searchPhrase" (textChange)="onTextChanged($event)" 
-            (clear)="onClear($event)" (submit)="onSubmit($event)">
-        </SearchBar>
+        <StackLayout row="0" *ngIf="listService._isEmpty">
+                <Image src="res://icon" ></Image>
+                <Label class="warning" text="Empty List"></Label>
+        </StackLayout>
 
-        <ListView row="1" [items]="myList" style="height: 100%;">
+        <ListView *ngIf="!listService._isEmpty" row="1" [items]="myList" style="height: 100%;">
             <ng-template let-folder="item" let-index="index">
                 <GridLayout columns="auto,*,*,*,auto" rows="*,*" (longPress)="deleteFolder(index)" (tap)="showDots(folder)"> 
                     <Image src="res://icon" width="50" textAlignment="center" row="0" rowSpan="2"></Image>
@@ -26,7 +27,7 @@
             </ng-template>
         </ListView>
 
-        
+
         <!-- <StackLayout row="2" style="background-color: #f5f5f5; height: 200;" *ngIf="dotsActive">
             <Label text="Compartilhar" style="text-align: center;"></Label>
             <Label text="Compartilhar" style="text-align: center;"></Label>
